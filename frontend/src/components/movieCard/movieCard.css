@@ -1,0 +1,73 @@
+.movieCard {
+    border-radius: 16px;
+    width: 300px !important;
+    background-color: transparent;
+    border-width: 2px !important;
+    margin: auto;
+    margin-top: 5% !important;
+}
+
+.voteButton {
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    border-width: 0px !important;
+    width: 100px;
+    text-transform: uppercase;
+}
+
+.voteButton:hover {
+    border-width: 2px !important;
+    border-color: black !important;
+    background: transparent;
+
+}
+
+.movieCard img {
+    width: 100%;
+    padding: 5px;
+}
+
+.movieCard img:hover {
+    transform: scale(0.9);
+}
+
+.cardText span {
+    font-size: 26px;
+}
+
+.modalStyle {
+    text-align: center !important;
+    color: black !important;
+}
+
+.modalButton {
+    background: black !important;
+    color: white  !important;
+    height: 50px !important;
+    width: 100px !important;
+    border-radius: 10px;
+}
+
+.modalButton:hover {
+    border:  2px black;
+    border-style: solid !important;
+    background: transparent !important;
+    color: black !important;
+}
+
+.modalForm {
+    width: 70% !important;
+}
+
+.modalForm:hover {
+    box-shadow: transparent !important;
+    border-color: black !important;
+}
+
+.modalForm:active {
+    box-shadow: transparent !important;
+    border-color: black !important;
+}

@@ -1,0 +1,72 @@
+.title {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.titleRow {
+    margin-top: 5% !important;
+}
+
+.rowIntro {
+    font-weight: 500;
+    font-size: 34px;
+}
+
+.moviesRow span {
+    margin-top: 5% !important;
+    font-size: 34px !important;
+}
+
+.cardDisplay {
+    margin-top: 5% !important;
+    display: flex !important;
+    margin: auto !important;
+    text-align: center !important;
+}
+
+.addAMovieRow {
+    margin-top: 5% !important;
+}
+
+.formStyle {
+    margin-top: 2% !important;
+    background: #a3959514;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.formInput {
+    width: 40%;
+    height: 50px;
+    margin: 5px;
+    border-color: #42404a;
+    border-radius: 5px;
+    padding: 10px;
+    outline-width: 0px !important;
+}
+
+.fornInput:active {
+    transform: scale(0.90) !important;
+    box-shadow: 3px 2px 22px 1px white !important;
+    border: solid !important;
+}
+
+.formInput:hover {
+    border-color: white;
+    border-width: 3px;
+}
+
+.formButton {
+    width: 200px;
+    height: 50px;
+    border-color: #42404a;
+    border-radius: 10px;
+}
+
+.formButton:hover {
+    background: white
+}
+
+.maciDetailsRow {
+    margin-top: 5% !important;
+}

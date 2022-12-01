@@ -1,0 +1,73 @@
+.maciDetails {
+    background: #a3959514;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.box {
+    padding: 10px;
+}
+
+.colRow {
+    margin-top: 5%;
+}
+
+.buttonRow {
+    margin-top: 2%;
+}
+
+.colRow span {
+    font-size: 30px;
+}
+
+.createButton {
+    width: 100px;
+    height: 50px;
+    border-color: #42404a;
+    border-radius: 10px;
+}
+
+.coordinatorKey {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 3%;
+}
+
+.coordinatorKeyRow {
+    margin-bottom: 3% !important;
+}
+
+.signUpInput {
+    width: 100%;
+    height: 50px;
+    margin: 5px;
+    border-color: #42404a;
+    border-radius: 5px;
+    padding: 10px;
+    outline-width: 0px !important;
+}
+
+.detailsTitle span {
+    font-size: 24px;
+}
+
+.keys span {
+    font-weight: 400 !important;
+    font-style: italic !important;
+    font-size: 16px !important;
+}
+
+.keys {
+    margin-top: 3% !important;
+}
+
+@media screen and (max-width: 991px) {
+    .coordinatorKey {
+        font-size: 6px;
+    }
+
+    .keys span {
+        font-size: 6px !important;
+    }
+}
