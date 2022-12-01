@@ -13,7 +13,6 @@ export default function NavBarMACI() {
             <ToastContainer
             position="top-right"
             autoClose={5000}
-            theme="dark"
             />
             <Navbar.Brand className="navTitle">MACI</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>

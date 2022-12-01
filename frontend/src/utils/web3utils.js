@@ -45,7 +45,6 @@ export const signup = async (publicKey) => {
     // get state index from the event
     if (receipt && receipt.logs) {
         const stateIndex = iface.parseLog(receipt.logs[0]).args[0]
-        console.log('State index:', stateIndex.toString())
         toast.success(`Your state index is ${stateIndex.toString()}`)
     } else {
         toast.warning('Error with signin up, try again')
@@ -91,6 +90,7 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
         pollId, // TODO dynamically get Poll ID
         generatedSalt,
     )
+
     const signature = command.sign(userMaciPrivkey)
 
     const message = command.encrypt(
@@ -111,7 +111,9 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
 
     const receipt = await tx.wait()
 
-    toast.success(`Ephemeral private key: encKeypair.privKey.serialize()`)
+    if (receipt.status === 1) {
+        toast.success('Successfully voted')
+        toast.success(`Ephemeral private key: ${encKeypair.privKey.serialize()}`)
+    }
 
-    console.log(receipt)
 }
