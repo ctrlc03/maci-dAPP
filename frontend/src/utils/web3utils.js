@@ -55,8 +55,6 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
     console.log('Tx inputs', option, stateIndex, weight, nonce, publicKey, privateKey, salt)
 
     // validate keys 
-
-    // User's MACI public key
     if (!PubKey.isValidSerializedPubKey(publicKey)) {
         toast.warning('Error: Invalid MACI Public key')
         return 
@@ -75,9 +73,21 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
 
     const encKeypair = new Keypair()
 
-    // get the poll id from the maci contract
-    // it will be the next poll id - 1
-    const pollId = (await maciContract.nextPollId()).sub(1)
+    // check whether we are running using an updated version of MACI's contract (with nextPollId set to public)
+    let pollId
+    if (process.env.REACT_APP_UPDATED_CONTRACT === "true") {
+        // get the poll id from the maci contract
+        // it will be the next poll id - 1
+        const pollIdContract = await maciContract.nextPollId()
+        pollId = pollIdContract.eq(0) ? pollIdContract : pollIdContract.sub(1)
+
+        if (pollId.eq(0)) {
+            toast.warning('There is no Poll currently live, ask the coordinator for instructions')
+            return 
+        }
+    } else {
+        pollId = 0
+    }
 
     const generatedSalt = genRandomSalt()
 
@@ -87,7 +97,7 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
         BigInt(option),
         BigInt(weight),
         BigInt(nonce),
-        pollId, // TODO dynamically get Poll ID
+        pollId,
         generatedSalt,
     )
 

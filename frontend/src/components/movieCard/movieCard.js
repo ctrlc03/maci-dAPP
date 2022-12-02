@@ -19,7 +19,7 @@ export default function MovieCard(props) {
     // vote on the MACI contract
     const vote = async () => {
         // option, stateIndex, weight, nonce, publicKey, privateKey, salt
-        await voteMACI(props.id, index, weight, nonce, pubKey, privKey, salt)
+        await voteMACI(props.id, index, weight, nonce, pubKey.trim(), privKey.trim(), salt)
         setShowModal(false)
     }
 

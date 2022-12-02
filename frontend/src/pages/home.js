@@ -92,13 +92,13 @@ export default function Home() {
                         <span className="rowIntro">Propose your movie</span>
                         <form onSubmit={createMovieSubmission} className="formStyle">
                             <div>
-                                <input type='text' name="title" className="formInput" placeholder='Title' />
+                                <input type='text' name="title" className="formInput modalForm" placeholder='Title' />
                             </div>
                             <div>
-                                <input type='text' name="url" className="formInput" placeholder='URL'/>
+                                <input type='text' name="url" className="formInput modalForm" placeholder='URL'/>
                             </div>
                             <div>
-                                <input type='text' name="image" className="formInput" placeholder='Image URL'/>
+                                <input type='text' name="image" className="formInput modalForm" placeholder='Image URL'/>
                             </div>
                             <div>
                                 <button type='submit' className="formButton">
