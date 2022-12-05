@@ -9,8 +9,6 @@ dotenv.config()
 
 dotenv.config();
 
-const signUpTokenABI = JSON.parse(fs.readFileSync('./abi/SignUpToken.json').toString()).abi
-
 const app = express();
 app.use(bodyParser.json({limit: "550mb"}));
 app.use(bodyParser.urlencoded({limit: "150mb", extended: true, parameterLimit:50000}));
@@ -35,7 +33,7 @@ app.post('/movie', async (req, res) => {
     } catch (e) {
         res.status(500)
     } finally {
-        if (db) db.release()
+        if (db) await db.release()
     }
 })
 
@@ -51,7 +49,7 @@ app.get('/movies', async (req, res) => {
     } catch (e) {
         res.status(500)
     } finally {
-        if (db) db.release()
+        if (db) await db.release()
     }
 })
 
