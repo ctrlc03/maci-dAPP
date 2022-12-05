@@ -73,21 +73,13 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
 
     const encKeypair = new Keypair()
 
-    // check whether we are running using an updated version of MACI's contract (with nextPollId set to public)
-    let pollId
-    if (process.env.REACT_APP_UPDATED_CONTRACT === "true") {
-        // get the poll id from the maci contract
-        // it will be the next poll id - 1
-        const pollIdContract = await maciContract.nextPollId()
-        pollId = pollIdContract.eq(0) ? pollIdContract : pollIdContract.sub(1)
-
-        if (pollId.eq(0)) {
-            toast.warning('There is no Poll currently live, ask the coordinator for instructions')
-            return 
-        }
-    } else {
-        pollId = 0
+    // get the poll Id from the contract -> nextPollId - 1
+    const pollIdContract = await maciContract.nextPollId
+    if (pollIdContract.eq(0)) {
+        toast.warning('There is no Poll currently live, ask the coordinator for instructions')
+        return 
     }
+    const pollId = pollIdContract.sub(1)
 
     const generatedSalt = genRandomSalt()
 
@@ -125,5 +117,4 @@ export const voteMACI = async (option, stateIndex, weight, nonce, publicKey, pri
         toast.success('Successfully voted')
         toast.success(`Ephemeral private key: ${encKeypair.privKey.serialize()}`)
     }
-
 }

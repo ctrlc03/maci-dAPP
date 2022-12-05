@@ -127,10 +127,7 @@ Crate an `.env` file from the `.env-template` file provided inside the `frontend
 REACT_APP_MACI=$MACI_CONTRACT_ADDRESS
 REACT_APP_POLL=$MACI_POLL_ADDRESS
 REACT_APP_API_URL=$API_URL
-REACT_APP_UPDATED_CONTRACT="true/false" 
 ```
-
-**Note2** re `REACT_APP_UPDATED_CONTRACT` - set this to true if using latest version of MACI's contracts with `nextPollId` set to `public`, otherwise use false and the code will default to Poll Id 0. This will be removed as soon as contract changes are merged
 
 To run the frontend first install the dependencies and then run:
 
