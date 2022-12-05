@@ -13,13 +13,12 @@ export default function MovieCard(props) {
     const [ pubKey, setPubKey ] = useState('')
     const [ privKey, setPrivKey ] = useState('')
     const [ nonce, setNonce ] = useState(0)
-    const [ salt, setSalt ] = useState('')
     const [ showModal, setShowModal ] = useState(false)
 
     // vote on the MACI contract
     const vote = async () => {
         // option, stateIndex, weight, nonce, publicKey, privateKey, salt
-        await voteMACI(props.id, index, weight, nonce, pubKey.trim(), privKey.trim(), salt)
+        await voteMACI(props.id, index, weight, nonce, pubKey.trim(), privKey.trim())
         setShowModal(false)
     }
 
@@ -55,9 +54,6 @@ export default function MovieCard(props) {
                     </div>
                     <div>
                         <input type='text' className="formInput modalForm" placeholder='Private Key' onChange={(e) => setPrivKey(e.target.value)} />
-                    </div>
-                    <div>
-                        <input type='text' className="formInput modalForm" placeholder='Salt' onChange={(e) => setSalt(e.target.value)} />
                     </div>
                     <div>
                         <button onClick={vote} className="modalButton">

@@ -4,7 +4,6 @@ import dotenv from 'dotenv'
 import { PoolConnection } from "mariadb";
 import cors from 'cors'
 import bodyParser from "body-parser";
-import fs from 'fs'
 dotenv.config()
 
 dotenv.config();
